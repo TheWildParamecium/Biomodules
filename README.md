@@ -1,0 +1,2 @@
+This repository contains methods for diverse functionality and will be expanded over time. 
+It will maintain a common semantics and structure of the folders and scripts names ir order to be transformed in ruby modules later.
