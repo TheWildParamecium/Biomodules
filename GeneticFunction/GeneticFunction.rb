@@ -73,23 +73,14 @@ end
 
 #Returns the reverse complement chain of a DNA sequence
 def get_reverse_complement(dna_seq)
-    nts_array = dna_seq.upcase.split("")
-    reverse = nts_array.reverse
-    complement = []
-    reverse.each do |nt|
-        if nt == "T"
-            complement.concat(["A"])
-        elsif nt == "A"
-            complement.concat(["T"])
-        elsif nt == "C"
-            complement.concat(["G"])
-        elsif nt == "G"
-            complement.concat(["C"])
-        end
+    complement_nt = {"A"=> "T", "T"=> "A", "C"=> "G", "G"=> "C", "N"=> "N"}
+    reverse_complement = ""
+    dna_seq.each_char do |nt|
+        reverse_complement = complement_nt[nt] + reverse_complement
     end
-    complement = complement.join("")
-    return complement            
+    return reverse_complement            
 end
+
 
 #Given an array of DNA sequences it return the consensus sequence and the nucleotides statistics at each position,
 # and the profile matrix. Sequences need to be the same length in order to work
